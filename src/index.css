@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base + component utilities implement Designs/intelligence-ai-design.md
+   ("Archival Cream Ledger"): cream-dominant editorial shell, color rationed
+   to chart bars / icon chips / CTAs only. */
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-tertiary text-secondary text-base leading-[1.5]; font-family: Inter, system-ui, sans-serif; }
+  h1, h2, h3, h4 { font-family: "Libre Baskerville", Georgia, serif; @apply font-normal text-heading; }
+}
+
+@layer components {
+  /* button-dark-filled: navy/charcoal, 10px radius, 48px height */
+  .btn-accent {
+    @apply inline-flex items-center justify-center bg-primary text-white text-[14px] font-medium h-12 px-[18px] py-[11px] rounded-[10px] border border-primary transition-all duration-200 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-tertiary;
+  }
+  /* button-tint-filled: warm tint fill for secondary hero action */
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-tint text-ink text-[14px] font-medium h-12 px-[18px] py-[11px] rounded-[10px] border border-border transition-all duration-200 hover:bg-neutral focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-tertiary;
+  }
+  /* button-outline: transparent, stone border, hover fills tint */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center bg-transparent text-secondary text-[14px] font-medium h-11 px-[14px] py-[10px] rounded-lg border border-border transition-all duration-200 hover:bg-tint focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-tertiary;
+  }
+  /* Compact utility CTA for the header bar (small dark pill) */
+  .btn-compact {
+    @apply inline-flex items-center justify-center bg-primary text-white text-[13px] font-medium h-9 px-5 rounded-[10px] border border-primary transition-all duration-200 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-tertiary;
+  }
+  /* card: stone fill, sharp 0px radius for data/resource rows (spec) */
+  .card {
+    @apply bg-neutral rounded-none p-4 border border-border text-secondary;
+  }
+  /* chip: outline filter-pill style, 8px radius, transparent fill */
+  .chip {
+    @apply inline-block px-3 py-1 rounded-lg bg-transparent border border-border text-secondary text-[12px] font-medium tracking-[0.08em] uppercase;
+  }
+  /* field: 8px control radius on cream/white */
+  .field {
+    @apply w-full h-11 px-[14px] rounded-lg border border-border bg-surface text-secondary text-[14px] placeholder-muted/70 focus:border-primary focus:ring-2 focus:ring-primary/15 focus:outline-none;
+  }
+  .field-area {
+    @apply w-full px-[14px] py-[10px] rounded-lg border border-border bg-surface text-secondary text-[14px] placeholder-muted/70 focus:border-primary focus:ring-2 focus:ring-primary/15 focus:outline-none resize-none;
+  }
+  .section {
+    @apply py-20 px-4 sm:px-6 lg:px-8;
+  }
+  .container {
+    @apply max-w-ledger mx-auto;
+  }
+}
+
+@layer utilities {
+  @keyframes caret-blink {
+    0%, 45% { opacity: 1; }
+    50%, 95% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  .animate-caret-blink { animation: caret-blink 1.1s ease infinite; }
+  .shadow-ledger { box-shadow: rgba(41,44,51,0.14) 0px 18px 48px 0px; }
+  .shadow-ledger-sm { box-shadow: rgba(0,0,0,0.08) 0px 1px 3px 0px; }
+  .serif-accent { font-family: "Times New Roman", Georgia, serif; font-style: italic; }
+}
