@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base + component utilities implement Designs/onyx.doctor-design.md
+   (Onyx Doctor: calm boutique medical identity, Verdana system stack). */
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-neutral text-secondary text-[14px] leading-[1.5]; }
+  h1, h2, h3, h4 { @apply font-heading text-primary; }
+}
+
+@layer components {
+  /* button-primary: calm secondary-toned solid, light text, 4px radius, 40px height */
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-secondary text-tertiary text-base font-normal h-10 px-4 rounded-sm transition-colors duration-200 hover:bg-primary hover:text-surface focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-neutral;
+  }
+  /* button-secondary: transparent, secondary text, restrained border */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center bg-transparent text-secondary text-base font-normal h-10 px-4 rounded-sm border border-secondary/40 transition-colors duration-200 hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-neutral;
+  }
+  /* btn-accent: strongest CTA — same calm solid treatment as button-primary */
+  .btn-accent {
+    @apply inline-flex items-center justify-center bg-secondary text-tertiary text-base font-normal h-10 px-4 rounded-sm transition-colors duration-200 hover:bg-primary hover:text-surface focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-neutral;
+  }
+  /* Compact CTA for the header bar */
+  .btn-compact {
+    @apply inline-flex items-center justify-center bg-secondary text-tertiary text-[14px] font-normal h-10 px-4 rounded-sm transition-colors duration-200 hover:bg-primary hover:text-surface focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface;
+  }
+  /* card: light muted-surface panel, faint border, 8px radius, 16px padding, flat */
+  .card {
+    @apply bg-muted-surface rounded-md p-4 border border-border text-secondary;
+  }
+  /* chip: pill-shaped utility label, compact padding, muted text, wide tracking */
+  .chip {
+    @apply inline-block px-3 py-1 rounded-full bg-neutral border border-border text-secondary text-xs font-normal tracking-[0.08em];
+  }
+  /* field: white surface, 4px corners, 40px height */
+  .field {
+    @apply w-full h-10 px-4 rounded-sm border border-border bg-surface text-on-surface text-[14px] placeholder-secondary/50 focus:border-primary focus:ring-2 focus:ring-primary/15 focus:outline-none;
+  }
+  .field-area {
+    @apply w-full px-4 py-2 rounded-sm border border-border bg-surface text-on-surface text-[14px] placeholder-secondary/50 focus:border-primary focus:ring-2 focus:ring-primary/15 focus:outline-none resize-none;
+  }
+  /* Airy boutique rhythm: generous outer space, restrained container */
+  .section {
+    @apply py-20 md:py-28 px-4 sm:px-6 lg:px-8;
+  }
+  .container {
+    @apply max-w-6xl mx-auto;
+  }
+}
