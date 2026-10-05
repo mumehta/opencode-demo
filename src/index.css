@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base + component utilities implement Designs/rulebase.co-design.md
+   (Rulebase: dark editorial, off-white on charcoal-brown, red accent). */
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-neutral text-on-surface text-[16px] leading-[1.5]; }
+  h1, h2, h3, h4 { @apply font-heading font-normal; }
+}
+
+@layer components {
+  /* button-primary: light-filled, dark-text CTA, 4px radius, 40px height */
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-primary text-neutral text-[14px] font-normal h-10 px-[14px] rounded border border-primary transition-colors duration-200 hover:bg-muted focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-neutral;
+  }
+  /* button-secondary: transparent with light border/text for dark backgrounds */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center bg-transparent text-on-surface text-[14px] font-normal h-10 px-[14px] rounded border border-border transition-colors duration-200 hover:border-secondary hover:text-primary focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-neutral;
+  }
+  /* btn-accent: restrained red reserved for the strongest emphasis (e.g. Call Now) */
+  .btn-accent {
+    @apply inline-flex items-center justify-center bg-accent text-primary text-[14px] font-normal h-10 px-[14px] rounded transition-colors duration-200 hover:bg-accent/85 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-neutral;
+  }
+  /* Compact light CTA for the header bar */
+  .btn-compact {
+    @apply inline-flex items-center justify-center bg-primary text-neutral text-[14px] font-normal h-10 px-[14px] rounded transition-colors duration-200 hover:bg-muted focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-neutral;
+  }
+  /* card: calm dark container, 8px radius, 16px padding, subtle border, no shadow */
+  .card {
+    @apply bg-surface rounded-md p-4 border border-border text-on-surface;
+  }
+  /* chip: lightweight dark label tag, 4px radius */
+  .chip {
+    @apply inline-block px-[10px] py-1 rounded bg-surface border border-border text-on-surface text-[12px] font-normal;
+  }
+  /* field: light fill on dark page, 4px corners, 40px control height */
+  .field {
+    @apply w-full h-10 px-3 rounded bg-primary text-neutral text-[14px] placeholder-neutral/40 border border-transparent focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none;
+  }
+  .field-area {
+    @apply w-full px-3 py-[10px] rounded bg-primary text-neutral text-[14px] placeholder-neutral/40 border border-transparent focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none resize-none;
+  }
+  .section {
+    @apply py-16 md:py-[120px] px-4 sm:px-6 lg:px-8;
+  }
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+}
