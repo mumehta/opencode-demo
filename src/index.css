@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base + component utilities implement Designs/smc.co-design.md
+   (SMC Green Precision: white canvas, vivid green accent). */
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-neutral text-secondary font-sans text-[18px] leading-[28px]; }
+  h1, h2, h3, h4 { @apply font-heading font-bold tracking-normal; }
+}
+
+@layer components {
+  /* button-primary: vivid green fill, dark text, 4px radius, 15px 20px padding */
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-primary text-secondary text-[14px] font-semibold leading-[20px] px-5 py-[15px] rounded-sm transition-colors duration-200 hover:bg-primary-60 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-neutral;
+  }
+  /* button-secondary: transparent, black text + border */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center bg-transparent text-secondary text-[14px] font-semibold leading-[20px] px-5 py-[15px] rounded-sm border border-secondary/30 transition-colors duration-200 hover:border-secondary hover:bg-muted-surface focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-neutral;
+  }
+  /* btn-accent: strongest CTA — same green treatment */
+  .btn-accent {
+    @apply inline-flex items-center justify-center bg-primary text-secondary text-[14px] font-semibold leading-[20px] px-5 py-[15px] rounded-sm transition-colors duration-200 hover:bg-primary-60 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-neutral;
+  }
+  /* Compact green CTA for the header bar */
+  .btn-compact {
+    @apply inline-flex items-center justify-center bg-primary text-secondary text-[14px] font-semibold leading-[20px] h-10 px-5 rounded-sm transition-colors duration-200 hover:bg-primary-60 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-neutral;
+  }
+  /* card: white surface, 10px radius, 30px padding, soft shadow */
+  .card {
+    @apply bg-surface rounded-md p-[30px] border border-border text-secondary shadow-card;
+  }
+  /* chip: muted pill, 6px 12px */
+  .chip {
+    @apply inline-block px-3 py-1.5 rounded-full bg-muted-surface border border-border text-secondary text-[12px] font-semibold tracking-[0.02em];
+  }
+  /* eyebrow: mono technical label */
+  .eyebrow {
+    @apply font-mono text-[12px] tracking-[0.08em] uppercase text-tertiary;
+  }
+  /* field: understated white input, 4px radius */
+  .field {
+    @apply w-full px-5 py-[15px] rounded-sm border border-border bg-surface text-secondary text-[14px] placeholder-tertiary/70 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none;
+  }
+  .field-area {
+    @apply w-full px-5 py-[15px] rounded-sm border border-border bg-surface text-secondary text-[14px] placeholder-tertiary/70 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none resize-none;
+  }
+  .section {
+    @apply py-[50px] md:py-[100px] px-5 sm:px-6 lg:px-8;
+  }
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+}
