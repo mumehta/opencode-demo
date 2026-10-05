@@ -2,7 +2,23 @@
 
 > **Demo project only.** This is a public showcase for building with [OpenCode](https://opencode.ai) CLI, not a production plumbing site.
 
-Live demo deployed on Vercel: *(add your Vercel URL here)*
+## Live demos (Vercel)
+
+- Production (`main`): https://opencode-demo.vercel.app/
+- Branch previews — Hobby plan allows 5 deploy hooks, so these 5 branches are deployed
+  (Premium allows more; add hooks the same way to deploy the rest):
+
+  | Branch | Preview URL |
+  |--------|-------------|
+  | `design/archival-ledger` | https://opencode-demo-lu1hoeflb-munishs-projects-46923529.vercel.app/ |
+  | `design/colabs-editorial` | https://opencode-demo-9qismhwii-munishs-projects-46923529.vercel.app/ |
+  | `design/context` | https://opencode-demo-lthkmiysm-munishs-projects-46923529.vercel.app/ |
+  | `design/dribbble` | https://opencode-demo-8rcc0h0sk-munishs-projects-46923529.vercel.app/ |
+  | `design/onyx-doctor` | https://opencode-demo-eaxh2v6k8-munishs-projects-46923529.vercel.app/ |
+
+  Note: the hashed URLs above are per-deployment. Each branch also keeps a stable
+  `opencode-demo-git-<branch>-munishs-projects-46923529.vercel.app` URL that
+  survives redeploys — prefer those for permanent links.
 
 A single-page React + Vite site for a fictional plumbing company ("FlowRight"), re-skinned into 12+ design variants by parallel OpenCode agents, each on its own branch/port.
 
@@ -88,3 +104,23 @@ npm run preview  # preview the build locally
 ## Deploy
 
 Any static host works (`npm run build` → `dist/`). The reference deployment is on **Vercel** — connect the repo, framework preset Vite, build command `npm run build`, output dir `dist`.
+
+### Deploying branches without pushing (Deploy Hooks)
+
+Vercel only builds a branch on push events received *after* the repo is connected,
+so pre-existing branches never get preview deployments. Backfill them with deploy
+hooks instead of empty pushes:
+
+1. Vercel Dashboard → project → **Settings → Git → Deploy Hooks → Create Hook**.
+2. Name it (e.g. `design-rulebase`), select that branch, Create → copy the hook URL
+   (`https://api.vercel.com/v1/integrations/deploy/…`).
+3. Trigger it:
+   ```bash
+   curl -X POST <deploy-hook-url>
+   ```
+4. Repeat per branch. Hobby plan caps at 5 hooks (hence 5 branch previews above);
+   Premium/Pro allows more.
+
+Hooks are a one-time backfill — subsequent pushes to a hooked branch deploy
+automatically. Never commit hook URLs to git: anyone with one can trigger builds
+on your quota.
