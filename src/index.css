@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base + component utilities implement Designs/dribbble.com-design.md
+   (Dribbble Modern: pill controls, airy gallery surfaces, pink accent). */
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-surface text-primary text-[14px] font-medium leading-[1.4]; }
+  h1, h2, h3, h4 { @apply font-heading font-semibold tracking-[0px]; }
+}
+
+@layer components {
+  /* button-primary: dark pill, 32px height, 12px bold (spec Components) */
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-primary text-surface text-[12px] font-bold h-8 px-4 rounded-full transition-colors duration-200 hover:bg-primary/85 focus:outline-none focus:ring-2 focus:ring-tertiary focus:ring-offset-2 focus:ring-offset-surface;
+  }
+  /* button-secondary: white pill with light border, dark text */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center bg-surface text-primary text-[12px] font-bold h-8 px-4 rounded-full border border-border transition-colors duration-200 hover:border-secondary/40 focus:outline-none focus:ring-2 focus:ring-tertiary focus:ring-offset-2 focus:ring-offset-surface;
+  }
+  /* btn-accent: signature pink CTA, pill */
+  .btn-accent {
+    @apply inline-flex items-center justify-center bg-tertiary text-white text-[12px] font-bold h-8 px-4 rounded-full transition-colors duration-200 hover:bg-tertiary/85 focus:outline-none focus:ring-2 focus:ring-tertiary focus:ring-offset-2 focus:ring-offset-surface;
+  }
+  /* Compact dark CTA for the header bar (slightly taller for tap targets) */
+  .btn-compact {
+    @apply inline-flex items-center justify-center bg-primary text-surface text-[12px] font-bold h-8 px-4 rounded-full transition-colors duration-200 hover:bg-primary/85 focus:outline-none focus:ring-2 focus:ring-tertiary focus:ring-offset-2 focus:ring-offset-surface;
+  }
+  /* card: white, subtle border, 16px padding, 8px radius, no shadow */
+  .card {
+    @apply bg-surface rounded-md p-4 border border-muted-border text-primary;
+  }
+  /* chip: understated pill, 32px height, secondary label text */
+  .chip {
+    @apply inline-flex items-center h-8 px-4 rounded-full bg-surface border border-border text-secondary text-[12px] font-bold;
+  }
+  /* field: softly filled, fully rounded search-style input, 56px height */
+  .field {
+    @apply w-full h-14 px-5 rounded-full border border-transparent bg-inputfill text-primary text-[14px] font-medium placeholder-secondary/60 focus:border-tertiary focus:ring-2 focus:ring-tertiary/20 focus:outline-none;
+  }
+  .field-area {
+    @apply w-full px-5 py-4 rounded-[20px] border border-transparent bg-inputfill text-primary text-[14px] font-medium placeholder-secondary/60 focus:border-tertiary focus:ring-2 focus:ring-tertiary/20 focus:outline-none resize-none;
+  }
+  select.field {
+    @apply pr-10;
+  }
+  .section {
+    @apply py-20 md:py-32 px-4 sm:px-6 lg:px-8;
+  }
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+}
