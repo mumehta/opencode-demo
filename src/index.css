@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Taylor Hare: editorial, sunlit, flat, generous whitespace.
+   Tokens: primary #132019 forest ink, secondary #e4644b coral accent,
+   neutral/surface #f3eee8 warm paper, tertiary/border #e5e7eb. */
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-neutral text-primary text-base leading-[1.63]; }
+  h1, h2, h3, h4 { @apply font-heading font-normal; }
+}
+
+@layer components {
+  /* button-primary: dark forest fill, paper text, 4px radius, 40px height; hover -> coral */
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-primary text-neutral text-base font-normal h-10 px-4 rounded-sm transition-colors duration-200 hover:bg-secondary hover:text-neutral focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-neutral;
+  }
+  /* button-secondary: transparent, forest text, subtle outline */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center bg-transparent text-primary text-base font-normal h-10 px-4 rounded-sm border border-primary/25 transition-colors duration-200 hover:border-primary focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-neutral;
+  }
+  /* btn-accent: coral accent reserved for the strongest CTA */
+  .btn-accent {
+    @apply inline-flex items-center justify-center bg-secondary text-neutral text-base font-normal h-10 px-4 rounded-sm transition-colors duration-200 hover:bg-primary hover:text-neutral focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-neutral;
+  }
+  /* Compact CTA for the header bar */
+  .btn-compact {
+    @apply inline-flex items-center justify-center bg-primary text-neutral text-sm font-normal h-10 px-4 rounded-sm transition-colors duration-200 hover:bg-secondary hover:text-neutral focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-neutral;
+  }
+  /* card: warm paper surface, 8px radius, 16px padding, subtle border, no shadow */
+  .card {
+    @apply bg-surface rounded-lg p-4 border border-border text-primary;
+  }
+  /* chip: quiet editorial eyebrow badge */
+  .chip {
+    @apply inline-block px-3 py-1 rounded-sm bg-surface border border-border text-primary/70 text-sm font-normal;
+  }
+  /* field: quiet input, 4px radius */
+  .field {
+    @apply w-full h-10 px-3 rounded-sm border border-border bg-surface text-primary text-base placeholder-primary/40 focus:border-secondary focus:ring-2 focus:ring-secondary/20 focus:outline-none;
+  }
+  .field-area {
+    @apply w-full px-3 py-2 rounded-sm border border-border bg-surface text-primary text-base placeholder-primary/40 focus:border-secondary focus:ring-2 focus:ring-secondary/20 focus:outline-none resize-none;
+  }
+  .section {
+    @apply py-24 md:py-[120px] px-4 sm:px-6 lg:px-8;
+  }
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+}
