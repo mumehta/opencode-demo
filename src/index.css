@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base + component utilities implement Designs/kamdalej.sk-design.md (WhereNext).
+   Warm civic system: cream surfaces, white cards, orange pill CTAs. */
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-surface text-secondary text-[16px] leading-[1.5] tracking-[-0.24px]; }
+  h1, h2, h3, h4 { @apply font-heading font-light text-on-surface; }
+}
+
+@layer components {
+  /* button-primary: pill orange CTA, white text, 52px height */
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-primary text-white text-[14px] font-medium h-[52px] px-6 rounded-full transition-colors duration-200 hover:bg-primary-70 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface;
+  }
+  /* button-secondary: white pill, warm-gray text, subtle border */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center bg-neutral text-secondary text-[14px] font-medium h-[52px] px-6 rounded-full border border-border transition-colors duration-200 hover:border-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface;
+  }
+  /* btn-accent: strongest CTA — same orange pill */
+  .btn-accent {
+    @apply inline-flex items-center justify-center bg-primary text-white text-[14px] font-medium h-[52px] px-6 rounded-full transition-colors duration-200 hover:bg-primary-70 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface;
+  }
+  /* Compact orange pill CTA for the header bar */
+  .btn-compact {
+    @apply inline-flex items-center justify-center bg-primary text-white text-[13px] font-medium h-10 px-5 rounded-full transition-colors duration-200 hover:bg-primary-70 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface;
+  }
+  /* card: white fill, 8px radius, 16px padding, subtle border, flat */
+  .card {
+    @apply bg-neutral rounded-md p-4 border border-border text-secondary;
+  }
+  /* chip: quiet muted pill for contextual tags / step markers */
+  .chip {
+    @apply inline-block px-3 py-1.5 rounded-full bg-muted text-on-surface text-[12px] font-medium tracking-[0.04em];
+  }
+  /* eyebrow: small uppercase orange section label */
+  .eyebrow {
+    @apply inline-block text-[12px] font-medium tracking-[0.04em] uppercase text-primary mb-4;
+  }
+  /* field: white bordered input, 8px radius, 52px height */
+  .field {
+    @apply w-full h-[52px] px-4 rounded-md border border-border bg-neutral text-on-surface text-[16px] placeholder-secondary/60 focus:border-primary focus:ring-2 focus:ring-primary/15 focus:outline-none;
+  }
+  .field-area {
+    @apply w-full px-4 py-3.5 rounded-md border border-border bg-neutral text-on-surface text-[16px] placeholder-secondary/60 focus:border-primary focus:ring-2 focus:ring-primary/15 focus:outline-none resize-none;
+  }
+  .section {
+    @apply py-20 md:py-28 px-4 sm:px-6 lg:px-8;
+  }
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+}
