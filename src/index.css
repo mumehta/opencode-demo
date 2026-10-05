@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base + component utilities implement Designs/DESIGN_WarmHeritage.md (§3–§5).
+   Edit the spec first, then mirror here. */
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-cream text-charcoal font-sans; }
+  h1, h2, h3, h4 { @apply font-heading; }
+}
+
+@layer components {
+  /* btn-primary: olive bg, white text, hover lift + olive shadow, gold focus ring on cream */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-olive text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-olive/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream disabled:opacity-70 disabled:pointer-events-none;
+  }
+  /* btn-secondary: gold bg, charcoal text, same interaction treatment */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 bg-gold text-charcoal font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
+  }
+  /* Compact olive CTA for the header bar */
+  .btn-compact {
+    @apply inline-flex items-center justify-center bg-olive text-white text-sm font-semibold h-10 px-5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-olive/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
+  }
+  /* btn-accent: legacy alias — maps to primary olive CTA */
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 bg-olive text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-olive/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
+  }
+  /* card: white, rounded-xl, olive hairline border, hover shadow + border */
+  .card {
+    @apply bg-white rounded-xl p-6 border border-olive/10 shadow-sm text-charcoal transition-all duration-200 hover:shadow-md hover:border-olive/30;
+  }
+  /* chip: eyebrow pill — gold tint bg, olive text */
+  .chip {
+    @apply inline-flex items-center px-4 py-1.5 rounded-full bg-gold/20 text-olive text-sm font-medium;
+  }
+  /* field: rounded-lg input with olive border, olive focus ring */
+  .field {
+    @apply w-full px-4 py-3 rounded-lg border border-olive/20 bg-white text-charcoal placeholder-charcoal/40 focus:border-olive focus:ring-2 focus:ring-olive/20 focus:outline-none;
+  }
+  .field-area {
+    @apply w-full px-4 py-3 rounded-lg border border-olive/20 bg-white text-charcoal placeholder-charcoal/40 focus:border-olive focus:ring-2 focus:ring-olive/20 focus:outline-none resize-none;
+  }
+  .section {
+    @apply py-16 md:py-24 px-4 sm:px-6 lg:px-8;
+  }
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+}
