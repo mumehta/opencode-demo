@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base + component utilities implement Designs/www.context.dev-DESIGN.md.
+   IBM Plex Sans UI, IBM Plex Mono code; pill buttons; rounded-xl/xxl cards;
+   layered micro-shadows; generous 16px-base spacing. */
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-canvas text-body font-sans text-[16.2px] leading-[1.63]; }
+  h1, h2, h3, h4 { @apply font-heading; }
+  button:active { transform: scale(0.97); }
+  button:disabled { opacity: 0.5; }
+  :focus-visible { outline: 2px solid #2563EB; outline-offset: 2px; }
+}
+
+@layer components {
+  /* Primary filled: near-black pill, 48px, thin dark border */
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-brand text-white font-sans font-medium text-[16px] leading-[1.4] h-[48px] px-[25.6px] rounded-full border border-black shadow-btn transition-all duration-200 hover:shadow-none hover:bg-black focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-white active:scale-[0.97] disabled:opacity-50;
+  }
+  /* Accent CTA: electric-blue pill for strongest actions */
+  .btn-accent {
+    @apply inline-flex items-center justify-center bg-accent text-white font-sans font-medium text-[16px] leading-[1.4] h-[48px] px-[25.6px] rounded-full border border-accent shadow-btn transition-all duration-200 hover:shadow-none hover:bg-[#1D55C4] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-white active:scale-[0.97] disabled:opacity-50;
+  }
+  /* Compact header CTA: light pill */
+  .btn-compact {
+    @apply inline-flex items-center justify-center bg-[#F5F5F5] text-ink font-sans font-medium text-[12.15px] leading-[1.4] h-[39.6px] px-[18px] rounded-full border border-black/[0.04] shadow-btn-sm transition-all duration-200 hover:shadow-none hover:bg-primary focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-white active:scale-[0.97];
+  }
+  /* Secondary: lavender pill with deep-purple text */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center bg-primary text-lavtext font-sans text-[13px] font-normal leading-[1.54] h-[48px] px-8 rounded-full transition-all duration-200 hover:bg-[#E0D6F3] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-white active:scale-[0.97];
+  }
+  /* Default card: white, rounded-xl, micro-elevation */
+  .card {
+    @apply bg-canvas rounded-xl p-6 border border-black/[0.04] shadow-micro text-ink;
+  }
+  /* Featured purple card */
+  .card-featured {
+    @apply bg-surface rounded-xxl p-7 border-0 shadow-featured text-white;
+  }
+  /* Teal feature card */
+  .card-teal {
+    @apply bg-teal rounded-xl p-6 border-0 shadow-micro text-ink;
+  }
+  /* Chip: lavender pill badge */
+  .chip {
+    @apply inline-block px-4 py-1.5 rounded-full bg-primary text-lavtext text-[12.6px] font-medium leading-[1.25];
+  }
+  /* Fields: subtle rounding per spec (7.2px) */
+  .field {
+    @apply w-full h-[48px] px-4 rounded-[7.2px] border border-black/10 bg-canvas text-ink text-[14.4px] placeholder-faint focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none;
+  }
+  .field-area {
+    @apply w-full px-4 py-3 rounded-[7.2px] border border-black/10 bg-canvas text-ink text-[14.4px] placeholder-faint focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none resize-none;
+  }
+  .section {
+    @apply py-[56px] md:py-[56px] px-6 md:px-9 lg:px-[43px];
+  }
+  .container {
+    @apply max-w-content mx-auto;
+  }
+  /* Hero gradient band */
+  .hero-gradient {
+    background: linear-gradient(rgb(255, 255, 255) 0%, rgb(237, 243, 253) 21.87%, rgb(206, 224, 249) 55%, rgba(148, 186, 241, 0.85) 72%, rgba(100, 155, 235, 0.4) 85%, rgba(0, 0, 0, 0) 100%);
+  }
+  .band-blue {
+    background: linear-gradient(146deg, rgb(26, 85, 213), rgb(21, 70, 175));
+  }
+  .band-purple {
+    background: linear-gradient(146deg, rgb(47, 80, 216), rgb(39, 66, 177));
+  }
+  .band-green {
+    background: linear-gradient(146deg, rgb(24, 195, 134), rgb(20, 160, 110));
+  }
+}
